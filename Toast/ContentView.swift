@@ -9,22 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // MARK:- @State variables
     @State private var topToast: Bool = false
     @State private var bottomToast: Bool = false
     @State private var colorToast: Bool = false
     @State private var titleMessageToast: Bool = false
     @State private var titleImageToast: Bool = false
     @State private var imageToast: Bool = false
-    
     @State private var toastType: ToastType = ToastType.scaleToast
     @State private var toastPosition: VerticalAlignment = VerticalAlignment.bottom
-    
     @State private var color: Color = Color.green.opacity(0.8)
     @State private var duration: Int = 2
     
     private var message = "Here is the toast message"
     private var title = "Toast Title"
     
+    // MARK:- View
     var body: some View {
         NavigationView {
             Form {
@@ -51,24 +51,24 @@ struct ContentView: View {
                     }
                 }
                 Button("Bottom toast") {
-                    withAnimation(Animation.spring()) {
+                    withAnimation {
                         bottomToast.toggle()
                     }
                 }
                 Button("Toast with title") {
-                    withAnimation(Animation.spring()) {
+                    withAnimation {
                         titleMessageToast.toggle()
                     }
                 }
                 
                 Button("Title and image toast") {
-                    withAnimation(Animation.spring()) {
+                    withAnimation {
                         titleImageToast.toggle()
                     }
                 }
                 
                 Button("Image toast") {
-                    withAnimation(Animation.spring()) {
+                    withAnimation {
                         imageToast.toggle()
                     }
                 }
@@ -83,6 +83,7 @@ struct ContentView: View {
     }
 }
 
+// MARK:- Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -90,7 +91,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-
+// MARK:- EnumPicker
 struct EnumPicker<T: Hashable & CaseIterable, V: View>: View {
     
     @Binding var selected: T
