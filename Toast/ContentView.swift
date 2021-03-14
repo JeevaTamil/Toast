@@ -17,9 +17,9 @@ struct ContentView: View {
     @State private var imageToast: Bool = false
     
     @State private var toastType: ToastType = ToastType.scaleToast
-    @State private var toastAlignment: VerticalAlignment = .bottom
+    @State private var toastPosition: VerticalAlignment = VerticalAlignment.bottom
     
-    @State private var color: Color = Color.primary.opacity(0.5)
+    @State private var color: Color = Color.green.opacity(0.8)
     @State private var duration: Int = 2
     
     private var message = "Here is the toast message"
@@ -76,7 +76,7 @@ struct ContentView: View {
             .showToast(message, isPresented: $bottomToast, color: color, duration: duration, alignment: .bottom, toastType: toastType)
             .showToast(message, isPresented: $topToast, color: color, duration: duration, alignment: .top, toastType: toastType)
             .showToastWithTitle(title: title, message: message, isPresented: $titleMessageToast, color: color, toastType: toastType)
-            .showToastWithTitleAndImage(title: title, message: message, image: Image(systemName: "person"), isPresented: $titleImageToast, color: color, toastType: toastType)
+            .showToastWithTitleAndImage(title: title, message: message, image: Image(systemName: "checkmark.circle"), isPresented: $titleImageToast, color: color, toastType: toastType)
             .showToastWithImage(message, image: Image(systemName: "checkmark.circle"), isPresented: $imageToast, color: color, duration: duration, toastType: toastType)
             .navigationBarTitle("Toast")
         }
